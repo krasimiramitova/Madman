@@ -1,0 +1,41 @@
+h1
+{
+
+}
+
+.show
+{
+	visibility: visible;
+}
+
+.hide
+{
+	visibility: hidden;
+}
+
+img
+{
+	width: 204px;
+	height: 136px;
+}
+
+img .preview
+{
+	width: 255px;
+	height: 170px;
+	position: relative;
+	display: inline-block;
+}
+
+.tooltip .tooltiptext {
+	width: 120px;
+	top: 100%;
+	left: 50%;
+	margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+	opacity: 0;
+	transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+  opacity: 1;
+}
