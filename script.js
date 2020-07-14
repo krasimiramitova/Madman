@@ -1,59 +1,35 @@
-let images = $('.gallery').children("img");
+let images = $('.gallery').children("img"),
+	arr = [],
+	calcButton = $(".recipe-container").children("button");
 
 $(images).on('mouseenter', showPreview);
 $(images).on('mouseleave', hidePreview);
-
-function showPreview()
-{	
-	$(this).addClass("preview");
-	let src = $(this).attr("src"),
-		textTooltip = src.slice(4,-4),
-		newSpan = "<span class = 'tooltiptext' >" + textTooltip + "</span>";
-	$(newSpan).appendTo(this);
-}
-
-function hidePreview()
-{	
-	$(this).removeClass("preview");
-	$(this).children().remove();
-}
-
 $(images).on('click', addToRecipe);
+console.log(arr);
 
-// до тук я докарах 
-function addToRecipe()
-{
-	let src = $(this).attr("src"),
-		ingredientName = src.slice(4,-4);
-	console.log(src);
-}
+//$(calcButton).on('click', daysMagic(arr));
+console.log(daysMagic(arr));
 
-function addDays()
-{
-	let terms =	document.getElementById('terms'),
-		button = document.getElementsByTagName('button'),
-		ingredients = document.getElementsByClassName('ingredients')[0];
 
-	terms.setAttribute('class','hide');
-	button[0].setAttribute('class','hide');
-	ingredients.setAttribute('class','show');
-}
 
-function cutIt(arr, i)
+
+
+
+function cutIt(arr, k)
 {
 	let result = [],
 		len = arr.length,
 		begin = [], 
 		end = [];
-		if ((i>=0) && (i<len))
+
+	if ((k>=0) && (k<len))
 	{
-		begin = arr.slice(0,i);	
-		end = arr.slice(i+1,len);
+		begin = arr.slice(0,k);	
+		end = arr.slice(k+1,len);
 		result = begin.concat(end);
 	}		
 	return result;
 }
-
 
 function permute(arr) 
 {
@@ -72,12 +48,10 @@ function permute(arr)
 	}
 	return result;
 }
-
-		//console.log(permute([1]));
-
+	
 function daysMagic(arr)
 {
-	let pers = permute(arr); 
+	let pers = permute(arr), 
 		len = pers.length,
 		lenIn = pers[0].length,
 		days = 0;
@@ -99,4 +73,46 @@ function daysMagic(arr)
 		}
 		return days;
 	}
+}
+
+function addDays()
+{
+	let terms =	document.getElementById('terms'),
+		button = document.getElementsByTagName('button'),
+		ingredients = document.getElementsByClassName('ingredients')[0];
+
+	terms.setAttribute('class','hide');
+	button[0].setAttribute('class','hide');
+	ingredients.setAttribute('class','show');
+}
+
+function showPreview()
+{	
+	let src =  $(this).attr("src"),
+		ingredientName = src.slice(4,-4),
+		imgPositionTop = $(this).position().top,
+		imgPositionLeft = $(this).position().left,
+		newTop = imgPositionTop + 34,
+		newLeft = imgPositionLeft - 17.5, 
+		where = $(this).parent(),
+		newDiv = "<div id='pr' class='preview-containter' style='top:" + newTop + "; left:" + newLeft + " ;' ><img class='preview' src='"+ src +"' ><p>" + ingredientName + "</p></div>";
+
+	$(newDiv).appendTo(where);
+}
+
+function hidePreview() 
+{	
+	$("#pr").remove();
+}
+
+function addToRecipe()
+{
+	let ingredientName = $(this).attr("src").slice(4,-4),
+		recipeAdres = $(".recipe-container").children("ul"),
+		btn = $(recipeAdres).siblings('button');
+	$("<li>" + ingredientName + "</li>").appendTo(recipeAdres);
+	arr.push($(this).attr("alt"));
+	$(btn).removeClass();
+	console.log(arr);
+
 }
