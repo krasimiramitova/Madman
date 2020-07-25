@@ -2,64 +2,73 @@
 <html>
 <head>
 	<title>Madman</title>
-	<meta charset="utf-8">
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-	<h1>The MadMan</h1>
-	<div id="terms" class="show">
-		<p>Once again, you've played with extreme powers, the likes of which you shouldn't have even known about. And now HE is coming, from a realm of madness far beyond your comprehension. HE comes to destroy space-time itself!</p>
-		<p>Fortunately, you aren't just a madman - you're also a powerful sorcerer. You know a magic recipe to protect your world from the outer realities in which HE exists, at least for the time being...</p>
-		<p>Here's how the recipe works:</p>
-		<ul>
-			<li>It consist of a list of ingredients you should mix together, adding them to your magic cauldron one by one;	</li>
-			<li>Each ingredient is different, but many ingredients have the same magical nature (you know, just like frogs and snake teeth);</li>
-			<li>You should never add two ingredients of the same magical nature one right after the other (you want to protect the world, not destroy it!);</li>
-			<li>Each time you use the recipe, it protects your world for one day;</li>
-			<li>Each time you follow the recipe by mixing the ingredients in some order, that particular order can't be used anymore.</li>
-			<li>Given the list of ingredients for the recipe and their associated magical natures, you need to determine how many days you'll be able to protect your world.</li>
-		</ul>
-	</div>
-	<button onclick="addDays()">ADD DAYS TO THE WORLD!</button>
-	<div class='hide ingredients'>
-		<div class='recipe-container'>
+	<h1>The Mad Man</h1>
+	<div id="terms" class="row">
+		<div class="col-1 col-s-0"></div>
+		<div class="col-8 col-s-10">
+			<p>Once again, you've played with extreme powers, the likes of which you shouldn't have even known about. And now HE is coming, from a realm of madness far beyond your comprehension. HE comes to destroy space-time itself!</p>
+			<p>Fortunately, you aren't just a madman - you're also a powerful sorcerer. You know a magic recipe to protect your world from the outer realities in which HE exists, at least for the time being...</p>
+			<p>Here's how the recipe works:</p>
 			<ul>
+				<li>It consist of a list of ingredients you should mix together, adding them to your magic cauldron one by one;	</li>
+				<li>Each ingredient is different, but many ingredients have the same magical nature (you know, just like frogs and snake teeth);</li>
+				<li>You should never add two ingredients of the same magical nature one right after the other (you want to protect the world, not destroy it!);</li>
+				<li>Each time you use the recipe, it protects your world for one day;</li>
+				<li>Each time you follow the recipe by mixing the ingredients in some order, that particular order can't be used anymore.</li>
+				<li>Given the list of ingredients for the recipe and their associated magical natures, you need to determine how many days you'll be able to protect your world.</li>
 			</ul>
-			<button class="hide"> CALCULATE </button>
 		</div>
-		<h2>Get magic ingredients</h2>
-		<span class="ingredients"></span>
-		<span class="gallery">
-			<img src="img/cobweb.jpg" alt="a">
-			<img src="img/cloud.jpg"  alt="b">
-			<img src="img/magic mushroom.jpg"  alt="c">	
-			<img src="img/phoenix feather.jpg"  alt="d">	
-			<img src="img/bat wing.jpg"  alt="e">
-			<img src="img/apple of discord.jpg"  alt="f">
-			<img src="img/new born baby hair.jpg"  alt="g">
-			<img src="img/wind of change.jpg"  alt="a">		
-			<img src="img/dino bone.jpg"  alt="b">
-			<img src="img/brave man blood.jpg"  alt="c">
-			<img src="img/snake teeth.jpg"  alt="a">
-			<img src="img/broom.jpg"  alt="b">
-			<img src="img/bird milk.jpg"  alt="c">
-			<img src="img/dragon.jpg"  alt="a">
-			<img src="img/frog leg.jpg"  alt="b">
-			<img src="img/live water.jpg"  alt="c">
-			<img src="img/maiden kiss.jpg"  alt="a">
-			<img src="img/mair chaum.jpg"  alt="b">
-			<img src="img/mairmad scale.jpg"  alt="c">
-			<img src="img/moon ray.jpg"  alt="d">
-			<img src="img/pike egg.jpg"  alt="a">
-			<img src="img/rhino horn.jpg"  alt="b">
-			<img src="img/smart blond saliva.jpg"   alt="c">
-			<img src="img/snake teeth.jpg"  alt="d">
-			<img src="img/star dust.jpg"  alt="a">
-			<img src="img/stone flower.jpg" alt="b">
-			<img src="img/pinch of rainbow.jpg" alt="c">
-			<img src="img/tiger eye.jpg" alt="d">
-		</span>
+		<button class="col-2 col-s-4" onclick="addDays()">ADD DAYS TO THE WORLD!</button>
+	</div>
+	<div class='hide ingredients'>
+		<div class = "col-1"><button id="arrow_left" class="hide" ><</button></div>
+		<div class="row">
+			<h2>Get magic ingredients</h2>
+			<div class = "col-1"> </div>
+			<div class="gallery col-8">
+				<div class="col-1"><a class="left col-4" onclick="nextSlide(-1)">❮</a></div>
+				<div class="showSlide fade"><img src="img/1.jpg"  data-power="A" alt="cobweb string"></div>
+				<div class="showSlide fade"><img src="img/2.jpg"  data-power="B" alt='pinch of cloud'></div>
+				<div class="showSlide fade"><img src="img/3.jpg"  data-power="C" alt="merry mushroom"></div>
+				<div class="showSlide fade"><img src="img/4.jpg"  data-power="D" alt="phoenix feather"></div>
+				<div class="showSlide fade"><img src="img/5.jpg"  data-power="E" alt="bat wing"></div>
+				<div class="showSlide fade"><img src="img/6.jpg"  data-power="F" alt="piece of apple of discord"></div>
+				<div class="showSlide fade"><img src="img/7.jpg"  data-power="G" alt="hair of new born baby"></div>
+				<div class="showSlide fade"><img src="img/8.jpg"  data-power="A" alt="wind of change"></div>
+				<div class="showSlide fade"><img src="img/9.jpg"  data-power="B" alt="dino bone"></div>
+				<div class="showSlide fade"><img src="img/10.jpg" data-power="C" alt="drop of brave man blood"></div>
+				<div class="showSlide fade"><img src="img/11.jpg" data-power="A" alt="snake teeth"></div>
+				<div class="showSlide fade"><img src="img/12.jpg" data-power="B" alt="a straw of a good witch's broom"></div>
+				<div class="showSlide fade"><img src="img/13.jpg" data-power="C" alt="milk from bird"></div>
+				<div class="showSlide fade"><img src="img/14.jpg" data-power="A" alt="dragon's nail"></div>
+				<div class="showSlide fade"><img src="img/15.jpg" data-power="B" alt="frog leg"></div>
+				<div class="showSlide fade"><img src="img/16.jpg" data-power="C" alt="live water"></div>
+				<div class="showSlide fade"><img src="img/17.jpg" data-power="A" alt="maiden kiss"></div>
+				<div class="showSlide fade"><img src="img/18.jpg" data-power="B" alt="mair chaum"></div>
+				<div class="showSlide fade"><img src="img/19.jpg" data-power="C" alt="scale from mairmad"></div>
+				<div class="showSlide fade"><img src="img/20.jpg" data-power="D" alt="moon ray"></div>
+				<div class="showSlide fade"><img src="img/21.jpg" data-power="A" alt="pike egg"></div>
+				<div class="showSlide fade"><img src="img/22.jpg" data-power="B" alt="rhino horn" ></div>
+				<div class="showSlide fade"><img src="img/23.jpg" data-power="C" alt="smart blond saliva"></div>
+				<div class="showSlide fade"><img src="img/24.jpg" data-power="A" alt="star dust"></div>
+				<div class="showSlide fade"><img src="img/25.jpg" data-power="B" alt="flower stone"></div>
+				<div class="showSlide fade"><img src="img/26.jpg" data-power="C" alt="inch of rainbow"></div>
+				<div class="showSlide fade"><img src="img/27.jpg" data-power="D" alt="eye of a tiger"></div>
+				<div class="col-1"><span class="col-6"></span><a class="right col-4" onclick="nextSlide(1)">❯</a></div>
+			</div>
+		</div>
+		<div class="row" >
+			<div class = "col-1 col-s-0"></div>
+			<div class='col-4 recipe-container place-holder'>
+				<ul> Ingredients </ul>
+				<button class="place-holder"> CALCULATE </button>
+			</div>
+		</div>
 	</div>
 
 	<script type="text/javascript" src="script.js"></script>
